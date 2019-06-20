@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <h1>Inscription</h1>
+
+    {{ form_start(registrationForm) }}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword) }}
+        {{ form_row(registrationForm.roles) }}
+        {% else %}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword) }}
+            {{ form_row(registrationForm.roles, { 'attr': {'class': 'hidden'} }) }}
+        {% endif %}
+
+        <button class="btn btn-secondary">S'inscrire</button>
+    {{ form_end(registrationForm) }}
+    {% endblock %}

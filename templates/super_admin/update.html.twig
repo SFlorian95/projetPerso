@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SuperAdminController!{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col">
+            <h1>Formulaire de Modification d'Utilisateur</h1>
+          {{ form_start(editForm, { attr: {'novalidate':'novalidate'} }) }}
+          {{ form_row(editForm.email) }}
+          {{ form_row(editForm.roles) }}
+          <button class="btn btn-success" type="submit">Valider</button>
+        <a href="{{ url('super_admin.index') }}" class="btn btn-dark">Annuler</a>
+        {{ form_end(editForm) }}
+        </div>
+    </div>
+{% endblock %}
