@@ -25,7 +25,7 @@ class SuperAdminController extends AbstractController
         $results = $userRepository->findAll();
         
         return $this->render('super_admin/index.html.twig', [
-            'results'=>$results,
+            'results'=>$results
         ]);
     }
     

@@ -34,6 +34,13 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+    
+    /**
+     * un user est relié à un profile
+     * 
+     * @ORM\OneToOne(targetEntity="Profile", mappedBy="user")
+     */
+    private $profile;
 
     public function getId(): ?int
     {
@@ -92,6 +99,18 @@ class User implements UserInterface
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
+    }
+    
+    public function getProfile(): ?Profile
+    {
+        return $this->profile;
+    }
+
+    public function setProfile(?Profile $profile): self
+    {
+        $this->profile = $profile;
 
         return $this;
     }

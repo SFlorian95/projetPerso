@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+    <div class="row">
+         <p><a href="{{ url('user.update_profile', {id: result.id}) }}" class="btn btn-sm btn-secondary">Modifier le Profile</a></p>
+        <div class="col">{{ result.image |default('undefined') }}</div>
+        <div class="col"> 
+            {#{ dump(result) }#}
+            <h3>{{ result.firstname |default('undefined') ~ ' ' ~ result.lastname|default('undefined') }}</h3>
+            <h5>{{ result.pseudo|default('undefined') }}</h5>
+             <h5>{{ result.age|default('undefined') }}</h5>
+              <text>{{ result.description |default('undefined')}}<text>
+        </div>
+    </div>
+{% endblock %}

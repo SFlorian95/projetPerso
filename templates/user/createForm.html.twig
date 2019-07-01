@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création de Profile{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="col">
+            {% if false %}
+            <h1>Création du Profile</h1>
+            {% else %}
+            <h1>Modification du Profile</h1>
+            {% endif %}
+            {{ form_start(profileForm, {attr: {'novalidate':'novalidate'}}) }}
+            {{ form_row(profileForm.firstName) }}
+            {{ form_row(profileForm.lastName) }}
+            {{ form_row(profileForm.pseudo) }}
+            {{ form_row(profileForm.age) }}
+            {{ form_row(profileForm.description) }}
+            {{ form_row(profileForm.image) }}
+            
+            {% if true %}
+            <a href="{{ url('user.profile') }}" class="btn btn-dark">Retour</a>
+            {% endif %}
+            
+            <button class="btn btn-success" type="submit">Valider</button>
+            
+            {{ form_end(profileForm) }}
+        </div>
+    </div>
+{% endblock %}

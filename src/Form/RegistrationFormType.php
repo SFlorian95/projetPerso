@@ -38,22 +38,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('roles', TextType::class, [
-                'label' => 'Role :'
-            ])
-        ;
-        $builder->get('roles')
-                ->addModelTransformer(new CallbackTransformer(
-                function ($tagsAsArray) {
-                    // transform the array to a string
-                    return implode(', ', $tagsAsArray);  
-                },
-                function ($tagsAsString) {
-                    // transform the string back to an array
-                    return explode(', ', $tagsAsString);
-                }
-                        ))
-                ;
+          ;  
     }
 
     public function configureOptions(OptionsResolver $resolver)
