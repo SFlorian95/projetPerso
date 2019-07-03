@@ -4,14 +4,18 @@
 
 {% block body %}
     <div class="row">
-         <p><a href="{{ url('user.update_profile', {id: result.id}) }}" class="btn btn-sm btn-secondary">Modifier le Profile</a></p>
-        <div class="col">{{ result.image |default('undefined') }}</div>
+        <div class="col"><a href="{{ url('user.update_profile', {id: result.id}) }}" class="btn btn-sm btn-secondary">Modifier le Profile</a></div>
+    </div>
+    <div class="row">
+         <div class="col-sm-4">
+             <img src="{{ asset('img/' ~ result.image)}}" alt="" class="img-fluid">
+         </div>
         <div class="col"> 
             {#{ dump(result) }#}
             <h3>{{ result.firstname |default('undefined') ~ ' ' ~ result.lastname|default('undefined') }}</h3>
             <h5>{{ result.pseudo|default('undefined') }}</h5>
              <h5>{{ result.age|default('undefined') }}</h5>
-              <text>{{ result.description |default('undefined')}}<text>
+              <text>{{ result.description }}<text>
         </div>
     </div>
 {% endblock %}

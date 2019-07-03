@@ -5,7 +5,7 @@
 {% block body %}
     <div class="container-fluid">
         <div class="col">
-            {% if false %}
+            {% if user.profile is empty %}
             <h1>Création du Profile</h1>
             {% else %}
             <h1>Modification du Profile</h1>
@@ -18,11 +18,14 @@
             {{ form_row(profileForm.description) }}
             {{ form_row(profileForm.image) }}
             
-            {% if true %}
+            {% if user.profile is empty %}          
+            <button class="btn btn-success" type="submit">Valider</button>
+            {% else %}
             <a href="{{ url('user.profile') }}" class="btn btn-dark">Retour</a>
+            <button class="btn btn-success" type="submit">Valider</button> 
             {% endif %}
             
-            <button class="btn btn-success" type="submit">Valider</button>
+            
             
             {{ form_end(profileForm) }}
         </div>

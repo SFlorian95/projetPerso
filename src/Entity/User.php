@@ -114,6 +114,15 @@ class User implements UserInterface
 
         return $this;
     }
+    
+    public function removeProfile(Profile $profile): self
+    {
+        if ($this->profile->contains($profile)) {
+            $this->profile->removeElement($profile);
+        }
+
+        return $this;
+    }
 
     /**
      * @see UserInterface

@@ -2,22 +2,25 @@
     <div class="inner">
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <h3 class="masthead-brand"><a href="{{ url("user.index") }}">Mon Site Web</a></h3>
+        
       <nav class="nav nav-masthead justify-content-center">
-          
-
-                    <a class="nav-link active" href="{{ url("user.index") }}">Accueil</a>
-               <a class="nav-link" href="{{ url('user.profile')}}">Profile</a>
-                    <a class="nav-link" href="{{ logout_url() }}">Déconnexion</a>
-
+         
+        <a class="nav-link active" href="{{ url("user.index") }}">Accueil</a>
+        <a class="nav-link" href="{{ url('user.profile')}}">Profile</a>
+        <a class="nav-link" href="{{ logout_url() }}">Déconnexion</a>
+            
+        </nav>
                 {% else %}
         <h3 class="masthead-brand"><a href="{{ url("homepage.index") }}">Mon Site Web</a></h3>
-                    
+        
+        <nav class="nav nav-masthead justify-content-center"> 
         <a class="nav-link active" href="{{ url("homepage.index") }}">Accueil</a>
         <a class="nav-link" href="{{ url("app_register") }}">Inscription</a>
         <a class="nav-link" href="{{ url("app_login") }}">Connexion</a>
         
+        </nav>
         {% endif %}
-      </nav>
+      
     </div>
   </header>
 
